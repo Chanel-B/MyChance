@@ -26,12 +26,6 @@ public class PlayerController {
         return "index";
     }
 
-    @GetMapping("/players")
-    public String handleAllGetRequest(Model model) {
-        model.addAttribute("players", playerRepository.findAll());
-        return "index";
-    }
-
     @PostMapping("/player")
     public String handlePostRequest(String playerName) {
         //list of players
