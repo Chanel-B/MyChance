@@ -46,31 +46,57 @@
                 <table>
                     <tr>
                         <td>
-                            <input class="input-text" name="playerName" type="text" requiredminlength="1" maxlength="20"
-                                   placeholder="Enter Name"/> <br/>
+                            <input name="playerName" type="text" requiredminlength="1" maxlength="20"
+                                   placeholder="Enter Name" required="required" pattern="[A-Za-z0-9]{1,20}"
+                                   style="height: 80%; width: 75%; font-size: 98%; border-radius: 4px;"/>
                         </td>
                         <td>
-                            <input type="submit" value="Submit" id="add-button"></input>
+                            <input type="submit" value="Submit" class="button-71"></input>
                         </td>
                     </tr>
                 </table>
             </form>
-<!--            <br/>-->
 
-            <div style="background-color: green;">
-                <form>
-                    <div th:each="player : ${players}" id="list-container"
-                         style="background-color: powderblue; margin: 3px; height: auto; width: auto; border-radius: 5px; display: inline-flex; flex-wrap: wrap;">
-                        &#160;
-                        <span th:text="${player}" style=" margin: 3px;"></span>
-<!--                        <input type="submit" value="Submit" ></input>-->
-                    </div>
+            <div style="background-color: green; display: flex; flex-wrap: wrap;">
+                <!--                this form tag is kept here to permet the user to delete a player, that's when hover on the name it shows delete and -->
+                <!--                so by clicking on the name it delete it-->
+                <div style="height: auto; width: 60%; rgb(153, 153, 102, 0.5)">
+                    <form>
+                        <div th:each="player : ${players}" id="list-container"
+                             style=" margin-top: 5px; height: auto; width: auto; border-radius: 8px; display: inline-flex; flex-wrap: wrap;">
+                            &#160;
+                            <button th:text="${player}" class="button-73"></button>
+                        </div>
+                    </form>
+                </div>
+                <div style="height: auto; width: 40%; rgb(102, 153, 255, 0.5)">
 
-                </form>
+<!--                    <form action="/players" method="get">-->
+<!--                        &lt;!&ndash;                    shuffle list&ndash;&gt;-->
+<!--                        <input type="submit" value="Submit" class="button-78"></input>-->
+
+<!--                        <tbody>-->
+<!--                        <tr th:if="${player.empty}">-->
+<!--                            <td colspan="2"> No player Available</td>-->
+<!--                        </tr>-->
+<!--                        <tr  th:each="player : ${players}">-->
+<!--                            <td>-->
+<!--                                <span th:text="${player.id}"> Title </span>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <span th:text="${player.playerName}"> Author </span>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+
+
+<!--                    </form>-->
+                </div>
             </div>
         </div>
+
         <div class="flex-item-right">
-             Chance!
+            Chance!
         </div>
     </div>
 </section>
